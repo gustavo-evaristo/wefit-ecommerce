@@ -6,6 +6,7 @@ export const theme = {
   'low-light': '#999999',
 
   'high-pure': '#FFFFFF',
+  'high-medium': '#D9D9D9',
 
   'success-pure': '#039B00',
 };

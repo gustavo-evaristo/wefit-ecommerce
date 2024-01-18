@@ -11,7 +11,7 @@ export function Header() {
 
   return (
     <Container>
-      <h1>WeMovies</h1>
+      <h1 onClick={() => navigate('/')}>WeMovies</h1>
 
       <CartContainer onClick={() => navigate('carrinho')}>
         <div>

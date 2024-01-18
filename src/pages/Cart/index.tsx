@@ -1,53 +1,41 @@
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '~/context/cart.context';
+import { CartProduct } from './components/CartProduct';
 import { EmptyCart } from './components/EmptyCart';
-import {
-  Container,
-  ContentProduct,
-  ContentProductDetails,
-  ContentProductTitle,
-  Row,
-  Section,
-} from './styles';
+import { ButtonStyled, Container, Products, Section, Summary } from './styles';
 
 export function Cart() {
-  const { products } = useCart();
+  const { products, getTotalCartPrice } = useCart();
+
+  const totalCartPrice = getTotalCartPrice();
 
   const cartIsEmpty = products.length < 1;
 
+  const navigate = useNavigate();
+
   return (
     <>
-      {!cartIsEmpty ? (
+      {cartIsEmpty ? (
         <EmptyCart />
       ) : (
         <Container>
           <Section>
-            <Row>
-              <img src="https://wefit-react-web-test.s3.amazonaws.com/spider-man.png" alt="" />
+            <Products>
+              {products.map((product) => (
+                <CartProduct {...product} />
+              ))}
+            </Products>
 
-              <ContentProduct>
-                <ContentProductTitle>
-                  <h3>Homem Aranha</h3>
+            <Summary>
+              <div>
+                <h6>TOTAL</h6>
+                <h5>R$ {totalCartPrice.toFixed(2)}</h5>
+              </div>
 
-                  <div>
-                    <h4>R$ 29,99</h4>
-                    <img src="/public/trash-icon.svg" alt="Remover produto" />
-                  </div>
-                </ContentProductTitle>
-
-                <ContentProductDetails>
-                  <div>
-                    <img src="/public/minus-icon.svg" alt="diminuir quantidade" />
-                    <input type="text" value="1" />
-                    <img src="/public/plus-icon.svg" alt="aumentar quantidade" />
-                  </div>
-
-                  <div>
-                    <h6>SUBTOTAL</h6>
-                    <h5>R$ 29,99</h5>
-                  </div>
-                </ContentProductDetails>
-              </ContentProduct>
-            </Row>
+              <ButtonStyled onClick={() => navigate('/compra-realizada')}>
+                FINALIZAR PEDIDO
+              </ButtonStyled>
+            </Summary>
           </Section>
         </Container>
       )}

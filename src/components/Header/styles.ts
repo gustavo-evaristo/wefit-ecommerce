@@ -18,6 +18,7 @@ export const Container = styled.header`
   & h1 {
     font-size: 2rem;
     font-weight: 700;
+    cursor: pointer;
   }
 `;
 

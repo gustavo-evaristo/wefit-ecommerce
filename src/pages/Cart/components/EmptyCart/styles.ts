@@ -15,7 +15,7 @@ export const Container = styled.section`
 
 export const Content = styled.div`
   width: 100%;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme['high-pure']};
 
   margin: 0 auto;
 

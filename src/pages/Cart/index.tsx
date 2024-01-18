@@ -1,11 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '~/context/cart.context';
+import { useCartStore } from '~/store/cart.store';
 import { CartProduct } from './components/CartProduct';
 import { EmptyCart } from './components/EmptyCart';
 import { ButtonStyled, Container, Products, Section, Summary } from './styles';
 
 export function Cart() {
-  const { products, getTotalCartPrice } = useCart();
+  const [products, getTotalCartPrice] = useCartStore((state) => [
+    state.products,
+    state.getTotalCartPrice,
+  ]);
 
   const totalCartPrice = getTotalCartPrice();
 

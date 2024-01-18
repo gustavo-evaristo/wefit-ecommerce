@@ -1,8 +1,14 @@
-import { useCart } from '~/context/cart.context';
+import { useCartStore } from '~/store/cart.store';
 import { Container, Content, ContentTitle, Details } from './styles';
 
 export function CartProduct({ id, image, title, price }: Product) {
-  const { removeProduct, incrementProduct, reduceProduct, getProductSummary } = useCart();
+  const [incrementProduct, reduceProduct, getProductSummary] = useCartStore((state) => [
+    state.incrementProduct,
+    state.reduceProduct,
+    state.getProductSummary,
+  ]);
+
+  const removeProduct = useCartStore((state) => state.removeProduct);
 
   const { amount, totalPrice } = getProductSummary(id);
 

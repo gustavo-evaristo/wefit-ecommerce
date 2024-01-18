@@ -1,9 +1,8 @@
-import { ThemeProvider } from 'styled-components';
-import { theme } from './styles/theme.ts';
-import { GlobalStyles } from './styles/global.ts';
-import { Routes } from './routes/index.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { Providers } from './context/providers.tsx';
+import { ThemeProvider } from 'styled-components';
+import { Routes } from './routes/index.tsx';
+import { GlobalStyles } from './styles/global.ts';
+import { theme } from './styles/theme.ts';
 
 export function App() {
   const queryClient = new QueryClient({
@@ -18,9 +17,7 @@ export function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Providers>
-          <Routes />
-        </Providers>
+        <Routes />
       </ThemeProvider>
     </QueryClientProvider>
   );

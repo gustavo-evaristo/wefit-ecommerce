@@ -1,8 +1,11 @@
-import { useCart } from '~/context/cart.context';
+import { useCartStore } from '~/store/cart.store';
 import { ButtonStyled, Card } from './styles';
 
 export function ProductCard(product: Product) {
-  const { addProductToCart, products } = useCart();
+  const [products, addProductToCart] = useCartStore((state) => [
+    state.products,
+    state.addProductToCart,
+  ]);
 
   const amountProductsInCart = products.filter((state) => state.id === product.id).length;
 

@@ -1,7 +1,7 @@
-import { Container, LoadingContent } from './styles';
-import { useProducts } from '~/hooks/useProducts';
 import { Loading } from '~/components/Loading';
 import { ProductCard } from '~/components/ProductCard';
+import { useProducts } from '~/hooks/useProducts';
+import { Container, LoadingContent } from './styles';
 
 export function Home() {
   const { isFetching, data } = useProducts();

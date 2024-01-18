@@ -1,8 +1,8 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { Home } from '~/pages/Home';
-import { Cart } from '~/pages/Cart';
-import { OrderConfirmed } from '~/pages/OrderConfirmed';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { DefaultLayout } from '~/layouts/DefaultLayout';
+import { Cart } from '~/pages/Cart';
+import { Home } from '~/pages/Home';
+import { OrderConfirmed } from '~/pages/OrderConfirmed';
 
 export function AppRoutes() {
   return (

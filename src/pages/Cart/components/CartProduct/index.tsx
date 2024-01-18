@@ -50,6 +50,11 @@ export function CartProduct({ id, image, title, price }: Product) {
           <div>
             <h6>SUBTOTAL</h6>
             <h5>R$ {totalPrice.toFixed(2)}</h5>
+            <img
+              src="/public/trash-icon.svg"
+              alt="Remover produto"
+              onClick={() => removeProduct(id)}
+            />
           </div>
         </Details>
       </Content>

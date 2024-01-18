@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '~/store/cart.store';
 import { CartProduct } from './components/CartProduct';
 import { EmptyCart } from './components/EmptyCart';
-import { ButtonStyled, Container, Products, Section, Summary } from './styles';
+import { ButtonStyled, Container, ProductHeader, Products, Section, Summary } from './styles';
 
 export function Cart() {
   const [products, getTotalCartPrice] = useCartStore((state) => [
@@ -24,6 +24,12 @@ export function Cart() {
         <Container>
           <Section>
             <Products>
+              <ProductHeader>
+                <h6>PRODUTO</h6>
+                <h6>QTD</h6>
+                <h6>SUBTOTAL</h6>
+              </ProductHeader>
+
               {products.map((product) => (
                 <CartProduct {...product} key={product.id} />
               ))}

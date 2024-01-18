@@ -12,7 +12,10 @@ export const Container = styled.main`
 
 export const Section = styled.section`
   width: 100%;
-  height: 88vh;
+
+  @media (max-width: 980px) {
+    height: 88vh;
+  }
 
   background-color: ${({ theme }) => theme['high-pure']};
 
@@ -22,6 +25,31 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+`;
+
+export const ProductHeader = styled.div`
+  @media (max-width: 960px) {
+    display: none;
+  }
+
+  display: flex;
+  align-items: center;
+
+  & h6 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: ${({ theme }) => theme['low-light']};
+  }
+
+  & h6:nth-child(2) {
+    flex: 1;
+    text-align: right;
+  }
+
+  & h6:nth-child(3) {
+    flex: 1;
+    text-align: center;
+  }
 `;
 
 export const Products = styled.div`

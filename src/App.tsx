@@ -3,6 +3,7 @@ import { theme } from './styles/theme.ts';
 import { GlobalStyles } from './styles/global.ts';
 import { Routes } from './routes/index.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { Providers } from './context/providers.tsx';
 
 export function App() {
   const queryClient = new QueryClient({
@@ -17,7 +18,9 @@ export function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Routes />
+        <Providers>
+          <Routes />
+        </Providers>
       </ThemeProvider>
     </QueryClientProvider>
   );

@@ -3,18 +3,18 @@ import { ButtonContent, Card } from './styles';
 
 interface Props {
   title: string;
-  price: string;
+  price: number;
   image: string;
 }
 
-export function MoovieCard({ title, price, image }: Props) {
+export function ProductCard({ title, price, image }: Props) {
   return (
     <Card>
       <img src={image} alt={title} />
 
       <h3>{title}</h3>
 
-      <span>R$ {price}</span>
+      <span>R$ {price.toFixed(2)}</span>
 
       <Button>
         <ButtonContent>

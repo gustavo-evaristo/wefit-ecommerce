@@ -1,10 +1,10 @@
-import { MoovieCard } from '~/components/MoovieCard';
 import { Container, LoadingContent } from './styles';
-import { useMoovies } from '~/hooks/useMoovies';
+import { useProducts } from '~/hooks/useProducts';
 import { Loading } from '~/components/Loading';
+import { ProductCard } from '~/components/ProductCard';
 
 export function Home() {
-  const { isFetching, data } = useMoovies();
+  const { isFetching, data } = useProducts();
 
   return (
     <Container>
@@ -14,8 +14,8 @@ export function Home() {
         </LoadingContent>
       ) : (
         <>
-          {data?.map((moovie) => (
-            <MoovieCard {...moovie} key={moovie.id} />
+          {data?.map((product) => (
+            <ProductCard {...product} key={product.id} />
           ))}
         </>
       )}

@@ -9,7 +9,7 @@ export function OrderConfirmed() {
     <Container>
       <h3>Compra realizada com sucesso!</h3>
 
-      <img src="/public/order-confirmed.svg" alt="Compra realizada com sucesso" />
+      <img src="/order-confirmed.svg" alt="Compra realizada com sucesso" />
 
       <Button onClick={() => navigate('/')}>VOLTAR</Button>
     </Container>

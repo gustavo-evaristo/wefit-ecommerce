@@ -22,7 +22,7 @@ export function ProductCard(product: Product) {
 
       <ButtonStyled onClick={() => addProductToCart(product)} $isSelected={$isSelected}>
         <div>
-          <img src="/public/add-to-cart-icon.svg" alt='"Adicionar ao carrinho' />
+          <img src="/add-to-cart-icon.svg" alt='"Adicionar ao carrinho' />
           <h6>{amountProductsInCart}</h6>
         </div>
 

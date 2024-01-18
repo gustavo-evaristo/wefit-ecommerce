@@ -21,12 +21,18 @@ export const useCartStore = create(
   persist<CartStore>(
     (set, get) => {
       function addProductToCart(product: Product) {
+        const { products } = get();
+
+        const productAlreadyInCart = products.find((state) => state.id === product.id);
+
+        if (productAlreadyInCart) {
+          return;
+        }
+
         const data = {
           ...product,
           amount: 1,
         };
-
-        const { products } = get();
 
         const newProducts = [data, ...products];
 

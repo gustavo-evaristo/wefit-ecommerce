@@ -11,7 +11,7 @@ export function EmptyCart() {
         <div>
           <h3>Parece que não há nada por aqui :(</h3>
 
-          <img src="/public/empty.svg" alt="Sem produtos no carrinho" />
+          <img src="/empty.svg" alt="Sem produtos no carrinho" />
         </div>
 
         <Separator />

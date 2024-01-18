@@ -17,7 +17,7 @@ export function Header() {
           <span>{`${amountProductsInCart} ${amountProductsInCart === 1 ? 'item' : 'itens'}`}</span>
         </div>
 
-        <img src="/public/cart.svg" alt="Meu carrinho" />
+        <img src="/cart.svg" alt="Meu carrinho" />
       </CartContainer>
     </Container>
   );

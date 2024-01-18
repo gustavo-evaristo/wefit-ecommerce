@@ -23,18 +23,14 @@ export function CartProduct({ id, image, title, price }: Product) {
 
           <div>
             <h4>{formatCurrency(price)}</h4>
-            <img
-              src="/public/trash-icon.svg"
-              alt="Remover produto"
-              onClick={() => removeProduct(id)}
-            />
+            <img src="/trash-icon.svg" alt="Remover produto" onClick={() => removeProduct(id)} />
           </div>
         </ContentTitle>
 
         <Details>
           <div>
             <img
-              src="/public/minus-icon.svg"
+              src="/minus-icon.svg"
               alt="diminuir quantidade"
               onClick={() => reduceProduct(id)}
             />
@@ -42,7 +38,7 @@ export function CartProduct({ id, image, title, price }: Product) {
               <span>{amount}</span>
             </div>
             <img
-              src="/public/plus-icon.svg"
+              src="/plus-icon.svg"
               alt="aumentar quantidade"
               onClick={() => incrementProduct(id)}
             />
@@ -51,11 +47,7 @@ export function CartProduct({ id, image, title, price }: Product) {
           <div>
             <h6>SUBTOTAL</h6>
             <h5>{formatCurrency(totalPrice)}</h5>
-            <img
-              src="/public/trash-icon.svg"
-              alt="Remover produto"
-              onClick={() => removeProduct(id)}
-            />
+            <img src="/trash-icon.svg" alt="Remover produto" onClick={() => removeProduct(id)} />
           </div>
         </Details>
       </Content>

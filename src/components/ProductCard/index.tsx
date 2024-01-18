@@ -1,28 +1,29 @@
-import { Button } from '../Button';
-import { ButtonContent, Card } from './styles';
+import { useCart } from '~/context/cart.context';
+import { ButtonStyled, Card } from './styles';
 
-interface Props {
-  title: string;
-  price: number;
-  image: string;
-}
+export function ProductCard(product: Product) {
+  const { addProductToCart, products } = useCart();
 
-export function ProductCard({ title, price, image }: Props) {
+  const amountProductsInCart = products.filter((state) => state.id === product.id).length;
+
+  const isSelected = amountProductsInCart > 0;
+
   return (
     <Card>
-      <img src={image} alt={title} />
+      <img src={product.image} alt={product.title} />
 
-      <h3>{title}</h3>
+      <h3>{product.title}</h3>
 
-      <span>R$ {price.toFixed(2)}</span>
+      <span>R$ {product.price.toFixed(2)}</span>
 
-      <Button>
-        <ButtonContent>
+      <ButtonStyled onClick={() => addProductToCart(product)} isSelected={isSelected}>
+        <div>
           <img src="/public/add-to-cart-icon.svg" alt='"Adicionar ao carrinho' />
-          <h6>0</h6>
-        </ButtonContent>
-        ADICIONAR AO CARRINHO
-      </Button>
+          <h6>{amountProductsInCart}</h6>
+        </div>
+
+        {isSelected ? 'ITEM ADICIONADO' : ' ADICIONAR AO CARRINHO'}
+      </ButtonStyled>
     </Card>
   );
 }

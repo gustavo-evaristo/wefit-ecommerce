@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Button } from '../Button';
+
+interface Props {
+  isSelected: boolean;
+}
 
 export const Card = styled.div`
   height: 30.5rem;
@@ -43,20 +48,30 @@ export const Card = styled.div`
   }
 `;
 
-export const ButtonContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
+export const ButtonStyled = styled(Button)<Props>`
+  width: 28.7rem;
 
-  & img {
-    width: 1.3rem;
-    height: 1.3rem;
-  }
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      background-color: ${({ theme }) => theme['success-pure']};
+    `}
 
-  & h6 {
-    font-weight: 400;
-    color: ${({ theme }) => theme['high-pure']};
-    font-size: 1.2rem;
+  & div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+
+    & img {
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+
+    & h6 {
+      font-weight: 400;
+      color: ${({ theme }) => theme['high-pure']};
+      font-size: 1.2rem;
+    }
   }
 `;

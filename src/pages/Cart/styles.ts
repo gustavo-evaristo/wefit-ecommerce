@@ -94,7 +94,28 @@ export const Summary = styled.div`
     h6 {
       font-weight: 700;
       text-align: right;
-      flex: 1;
+
+      @media (max-width: 960px) {
+        flex: 1;
+      }
+    }
+  }
+
+  @media (min-width: 960px) {
+    flex-direction: row-reverse;
+
+    & div {
+      justify-content: flex-end;
+      gap: 1.6rem;
+    }
+
+    & h5,
+    h6 {
+      text-align: right;
+    }
+
+    & button {
+      max-width: 23.5rem;
     }
   }
 `;

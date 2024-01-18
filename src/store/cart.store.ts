@@ -14,6 +14,7 @@ interface CartStore {
   reduceProduct: (id: string) => void;
   getProductSummary: (id: string) => ProductSummary;
   getTotalCartPrice: () => number;
+  clearCart: () => void;
 }
 
 export const useCartStore = create(
@@ -89,6 +90,10 @@ export const useCartStore = create(
         };
       }
 
+      function clearCart() {
+        return set(() => ({ products: [] }));
+      }
+
       return {
         products: [],
         addProductToCart,
@@ -97,6 +102,7 @@ export const useCartStore = create(
         reduceProduct,
         getProductSummary,
         getTotalCartPrice,
+        clearCart,
       };
     },
     {

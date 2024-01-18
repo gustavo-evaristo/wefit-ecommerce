@@ -5,9 +5,10 @@ import { EmptyCart } from './components/EmptyCart';
 import { ButtonStyled, Container, ProductHeader, Products, Section, Summary } from './styles';
 
 export function Cart() {
-  const [products, getTotalCartPrice] = useCartStore((state) => [
+  const [products, getTotalCartPrice, clearCart] = useCartStore((state) => [
     state.products,
     state.getTotalCartPrice,
+    state.clearCart,
   ]);
 
   const totalCartPrice = getTotalCartPrice();
@@ -15,6 +16,11 @@ export function Cart() {
   const cartIsEmpty = products.length < 1;
 
   const navigate = useNavigate();
+
+  function checkout() {
+    clearCart();
+    return navigate('/compra-realizada');
+  }
 
   return (
     <>
@@ -41,9 +47,7 @@ export function Cart() {
                 <h5>R$ {totalCartPrice.toFixed(2)}</h5>
               </div>
 
-              <ButtonStyled onClick={() => navigate('/compra-realizada')}>
-                FINALIZAR PEDIDO
-              </ButtonStyled>
+              <ButtonStyled onClick={checkout}>FINALIZAR PEDIDO</ButtonStyled>
             </Summary>
           </Section>
         </Container>

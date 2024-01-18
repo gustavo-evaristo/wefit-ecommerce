@@ -1,6 +1,6 @@
+import { useNavigate } from 'react-router-dom';
 import { Button } from '~/components/Button';
 import { Container } from './styles';
-import { useNavigate } from 'react-router-dom';
 
 export function OrderConfirmed() {
   const navigate = useNavigate();

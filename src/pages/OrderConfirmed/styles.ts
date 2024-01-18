@@ -1,27 +1,31 @@
 import styled from 'styled-components';
 
-export const Container = styled.main`
-  width: 100%;
+export const Container = styled.div`
+  width: 95%;
 
-  background-color: ${({ theme }) => theme['high-pure']};
-  border-radius: 4px;
+  @media (min-width: 960px) {
+    width: 100%;
+  }
+
+  background-color: #fff;
+
+  margin: 0 auto;
 
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 3.2rem;
-
-  padding: 6.4rem;
+  padding: 6.4rem 0;
 
   & h3 {
     font-size: 2rem;
     font-weight: 700;
     color: ${({ theme }) => theme['primary-dark']};
-  }
+    text-align: center;
 
-  & img {
-    width: 44.7rem;
-    height: 26.5rem;
+    @media (max-width: 720px) {
+      max-width: 20rem;
+    }
   }
 `;

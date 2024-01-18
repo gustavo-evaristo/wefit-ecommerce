@@ -13,7 +13,7 @@ export function CartProduct({ id, image, title, price }: Product) {
   const { amount, totalPrice } = getProductSummary(id);
 
   return (
-    <Container key={id}>
+    <Container>
       <img src={image} alt={title} />
 
       <Content>

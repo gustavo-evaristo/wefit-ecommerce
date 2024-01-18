@@ -25,7 +25,7 @@ export function Cart() {
           <Section>
             <Products>
               {products.map((product) => (
-                <CartProduct {...product} />
+                <CartProduct {...product} key={product.id} />
               ))}
             </Products>
 

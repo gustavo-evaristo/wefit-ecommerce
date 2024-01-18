@@ -1,6 +1,19 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
+  width: 95%;
+  margin: 0 auto;
+
+  background-color: ${({ theme }) => theme['high-pure']};
+
+  border-radius: 4px;
+
+  @media (min-width: 960px) {
+    width: 100%;
+  }
+`;
+
+export const Content = styled.div`
   width: 100%;
   background-color: #fff;
 

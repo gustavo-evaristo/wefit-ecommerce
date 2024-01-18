@@ -6,7 +6,7 @@ export function ProductCard(product: Product) {
 
   const amountProductsInCart = products.filter((state) => state.id === product.id).length;
 
-  const isSelected = amountProductsInCart > 0;
+  const $isSelected = amountProductsInCart > 0;
 
   return (
     <Card>
@@ -16,13 +16,13 @@ export function ProductCard(product: Product) {
 
       <span>R$ {product.price.toFixed(2)}</span>
 
-      <ButtonStyled onClick={() => addProductToCart(product)} isSelected={isSelected}>
+      <ButtonStyled onClick={() => addProductToCart(product)} $isSelected={$isSelected}>
         <div>
           <img src="/public/add-to-cart-icon.svg" alt='"Adicionar ao carrinho' />
           <h6>{amountProductsInCart}</h6>
         </div>
 
-        {isSelected ? 'ITEM ADICIONADO' : ' ADICIONAR AO CARRINHO'}
+        {$isSelected ? 'ITEM ADICIONADO' : ' ADICIONAR AO CARRINHO'}
       </ButtonStyled>
     </Card>
   );

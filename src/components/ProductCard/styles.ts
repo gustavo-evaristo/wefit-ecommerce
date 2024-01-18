@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Button } from '../Button';
 
 interface Props {
-  isSelected: boolean;
+  $isSelected: boolean;
 }
 
 export const Card = styled.div`
@@ -51,8 +51,8 @@ export const Card = styled.div`
 export const ButtonStyled = styled(Button)<Props>`
   width: 28.7rem;
 
-  ${({ isSelected }) =>
-    isSelected &&
+  ${({ $isSelected }) =>
+    $isSelected &&
     css`
       background-color: ${({ theme }) => theme['success-pure']};
     `}

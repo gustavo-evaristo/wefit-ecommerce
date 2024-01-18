@@ -7,6 +7,10 @@ export const Container = styled.header`
   margin: 0 auto;
   padding: 1.8rem 1rem;
 
+  @media (min-width: 720px) {
+    margin-bottom: 2.4rem;
+  }
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,6 +25,8 @@ export const CartContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 
   gap: 0.8rem;
 

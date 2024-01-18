@@ -15,6 +15,7 @@ interface CartStore {
   getProductSummary: (id: string) => ProductSummary;
   getTotalCartPrice: () => number;
   clearCart: () => void;
+  handleProductAmount: (id: string, amount: number) => void;
 }
 
 export const useCartStore = create(
@@ -100,6 +101,22 @@ export const useCartStore = create(
         return set(() => ({ products: [] }));
       }
 
+      function handleProductAmount(id: string, amount: number) {
+        const { products } = get();
+
+        const newProducts = products.map((product) => {
+          if (product.id === id) {
+            const newProduct = { ...product, amount };
+
+            return newProduct;
+          }
+
+          return product;
+        });
+
+        return set(() => ({ products: newProducts }));
+      }
+
       return {
         products: [],
         addProductToCart,
@@ -109,6 +126,7 @@ export const useCartStore = create(
         getProductSummary,
         getTotalCartPrice,
         clearCart,
+        handleProductAmount,
       };
     },
     {

@@ -108,7 +108,7 @@ export const Details = styled.div`
     align-items: center;
     gap: 1.1rem;
 
-    & div {
+    & input {
       height: 2.6rem;
       width: 100%;
       max-width: 6rem;
@@ -120,9 +120,11 @@ export const Details = styled.div`
 
       background-color: ${({ theme }) => theme['high-pure']};
 
-      & span {
-        font-size: 1.4rem;
-        color: ${({ theme }) => theme['primary-dark']};
+      font-size: 1.4rem;
+      color: ${({ theme }) => theme['primary-dark']};
+
+      &:focus {
+        outline-color: ${({ theme }) => theme['primary-pure']};
       }
     }
 

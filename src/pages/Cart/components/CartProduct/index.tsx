@@ -3,15 +3,26 @@ import { formatCurrency } from '~/utils/format-currency';
 import { Container, Content, ContentTitle, Details } from './styles';
 
 export function CartProduct({ id, image, title, price }: Product) {
-  const [incrementProduct, reduceProduct, getProductSummary] = useCartStore((state) => [
-    state.incrementProduct,
-    state.reduceProduct,
-    state.getProductSummary,
-  ]);
+  const [incrementProduct, reduceProduct, getProductSummary, handleProductAmount] = useCartStore(
+    (state) => [
+      state.incrementProduct,
+      state.reduceProduct,
+      state.getProductSummary,
+      state.handleProductAmount,
+    ],
+  );
 
   const removeProduct = useCartStore((state) => state.removeProduct);
 
   const { amount, totalPrice } = getProductSummary(id);
+
+  function handleChange(event) {
+    if (+event.target.value < 1) {
+      return;
+    }
+
+    handleProductAmount(id, +event.target.value);
+  }
 
   return (
     <Container>
@@ -34,13 +45,12 @@ export function CartProduct({ id, image, title, price }: Product) {
               alt="diminuir quantidade"
               onClick={() => reduceProduct(id)}
             />
-            <div>
-              <span>{amount}</span>
-            </div>
+            <input type="number" min={1} value={amount} onChange={handleChange} />
             <img
               src="/plus-icon.svg"
               alt="aumentar quantidade"
               onClick={() => incrementProduct(id)}
+              onChange={handleChange}
             />
           </div>
 

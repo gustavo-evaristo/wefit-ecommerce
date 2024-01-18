@@ -1,4 +1,5 @@
 import { useCartStore } from '~/store/cart.store';
+import { formatCurrency } from '~/utils/format-currency';
 import { ButtonStyled, Card } from './styles';
 
 export function ProductCard(product: Product) {
@@ -17,7 +18,7 @@ export function ProductCard(product: Product) {
 
       <h3>{product.title}</h3>
 
-      <span>R$ {product.price.toFixed(2)}</span>
+      <span>{formatCurrency(product.price)}</span>
 
       <ButtonStyled onClick={() => addProductToCart(product)} $isSelected={$isSelected}>
         <div>

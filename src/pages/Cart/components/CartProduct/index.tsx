@@ -1,4 +1,5 @@
 import { useCartStore } from '~/store/cart.store';
+import { formatCurrency } from '~/utils/format-currency';
 import { Container, Content, ContentTitle, Details } from './styles';
 
 export function CartProduct({ id, image, title, price }: Product) {
@@ -21,7 +22,7 @@ export function CartProduct({ id, image, title, price }: Product) {
           <h3>{title}</h3>
 
           <div>
-            <h4>R$ {price.toFixed(2)}</h4>
+            <h4>{formatCurrency(price)}</h4>
             <img
               src="/public/trash-icon.svg"
               alt="Remover produto"
@@ -49,7 +50,7 @@ export function CartProduct({ id, image, title, price }: Product) {
 
           <div>
             <h6>SUBTOTAL</h6>
-            <h5>R$ {totalPrice.toFixed(2)}</h5>
+            <h5>{formatCurrency(totalPrice)}</h5>
             <img
               src="/public/trash-icon.svg"
               alt="Remover produto"

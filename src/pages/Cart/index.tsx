@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '~/store/cart.store';
+import { formatCurrency } from '~/utils/format-currency';
 import { CartProduct } from './components/CartProduct';
 import { EmptyCart } from './components/EmptyCart';
 import { ButtonStyled, Container, ProductHeader, Products, Section, Summary } from './styles';
@@ -44,7 +45,7 @@ export function Cart() {
             <Summary>
               <div>
                 <h6>TOTAL</h6>
-                <h5>R$ {totalCartPrice.toFixed(2)}</h5>
+                <h5>{formatCurrency(totalCartPrice)}</h5>
               </div>
 
               <ButtonStyled onClick={checkout}>FINALIZAR PEDIDO</ButtonStyled>

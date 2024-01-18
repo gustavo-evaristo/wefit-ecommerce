@@ -13,7 +13,7 @@ export const Container = styled.main`
 export const Section = styled.section`
   width: 100%;
 
-  @media (max-width: 980px) {
+  @media (max-width: 960px) {
     height: 88vh;
   }
 
